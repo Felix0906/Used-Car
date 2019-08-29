@@ -37,6 +37,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'user',
+    'buy',
+    'sale',
+    'pay',
+    'front',
 ]
 
 MIDDLEWARE = [
@@ -77,9 +82,9 @@ WSGI_APPLICATION = 'UsedCard.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
+        'USER': 'root',
         'NAME': 'usedcar',
         'HOST': 'localhost',
-        'USER': 'root',
         'PORT': 3306,
         'PASSWORD': 'Felix0906_',
     }
@@ -124,7 +129,11 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),
-                    os.path.join(BASE_DIR, 'index', 'static'),)
+                    os.path.join(BASE_DIR, 'front', 'static'),)
 
 SESSION_COOKIE_AGE = 60*60*24
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+
+AUTH_USER_MODEL = 'user.User'
+
+
